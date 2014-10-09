@@ -1,0 +1,26 @@
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+
+  def admin?
+    if self.role == 'admin'
+    	return true
+    end
+  end
+
+  def employ?
+    if self.role == 'employ'
+    	return true 
+    end
+  end
+
+  def apm?
+    if self.role == 'apm'
+    	return true
+    end
+  end
+
+end
