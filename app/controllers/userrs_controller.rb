@@ -1,8 +1,16 @@
 class UserrsController < ApplicationController
 	before_filter :authenticate_user! 
-	
+
   def index
-  	@users = User.all
+  	@users = if current_user.role == 'admin'
+  		          current_user.find_apm
+  		       elsif current_user.role == 'apm'
+  		       	  current_user.find_teamlead
+  		       elsif current_user.role == 'teamlead'
+  		       	  current_user.find_employ
+  		       else 
+  		       	  current_user
+  		       end
   	@user = User.only_deleted # to find deleted user
   end
 
