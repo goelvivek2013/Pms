@@ -1,6 +1,7 @@
 class UserrsController < ApplicationController
   def index
   	@users = User.all
+  	@user = User.only_deleted # to find deleted user
   end
 
   def new
@@ -24,9 +25,15 @@ class UserrsController < ApplicationController
   
   end
 
+  def activate_account
+    User.restore(params[:id])
+    redirect_to :controller=>'userrs',:action=>'index'
+  end
+
   def delete
     user = User.find(params[:id])
     user.delete
     redirect_to :controller=>'userrs',:action=>'index'
   end
+
 end

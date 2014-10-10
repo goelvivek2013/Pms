@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  # get 'userrs/index'
    get  'userrs/delete'
+   get  'userrs/activate_account'
  # get 'userrs/new'
   resources :userrs
   get 'home/index'

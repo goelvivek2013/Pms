@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/radar/paranoia.git
+  revision: ba0e7b9202396c4dc36220eb5aa5164559f63806
+  branch: rails4
+  specs:
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 3edf24de985d946f16a2781644289cfdc51ba95b
   specs:
@@ -144,6 +152,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  paranoia!
   rails (= 4.1.6)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

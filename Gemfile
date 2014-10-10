@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "paranoia", :github => "radar/paranoia", :branch => "rails4"
 gem 'cancan'
 gem 'devise'
 gem 'therubyracer'
