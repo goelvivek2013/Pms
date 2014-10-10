@@ -10,12 +10,12 @@
   <tr>
     <td><%= user.email %></td>
     <td><%= user.role %></td>
-    <td><%= link_to 'destroy' ,  userrs_delete_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
+    <td><%= link_to 'destroy' ,  custom_users_delete_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to 'New User' , new_userr_path %>
+<%= link_to 'New User' , new_custom_user_path %>
 
 <h2>Listing Deleted User</h2>
 <table class = "table">
@@ -29,7 +29,7 @@
   <tr>
     <td><%= user.email %></td>
     <td><%= user.role %></td>
-    <td><%= link_to 'activate' , userrs_activate_account_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
+    <td><%= link_to 'activate' , custom_users_activate_account_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
   </tr>
   <% end %>
 </table>

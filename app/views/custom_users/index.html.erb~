@@ -1,0 +1,35 @@
+<h2>Listing User</h2>
+<table class = "table">
+  <tr>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Action</th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.role %></td>
+    <td><%= link_to 'destroy' ,  custom_users_delete_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New User' , new_custom_user_path %>
+
+<h2>Listing Deleted User</h2>
+<table class = "table">
+  <tr>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Activate</th>
+  </tr>
+
+  <% @user.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.role %></td>
+    <td><%= link_to 'activate' , custom_users_activate_account_path(:id => user.id), data: { confirm: 'Are you sure?' }%></td>
+  </tr>
+  <% end %>
+</table>

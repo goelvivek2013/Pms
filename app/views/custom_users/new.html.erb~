@@ -1,0 +1,26 @@
+<h2>New User</h2>
+<%= form_for @user ,:url => custom_users_path do |f| %>
+  <div>
+    <%= f.label :email%><br/>
+    <%= f.email_field :email%>
+  </div>
+
+  <div>
+    <%= f.label :password%><br/>
+    <%= f.password_field :password%>
+  </div>
+
+  <div>
+    <%= f.label :confirm_password%><br/>
+    <%= f.password_field :password_confirmation%>
+  </div>
+
+  <div>
+    <%= f.label :role%>
+    <%= f.select :role, options_for_select(%w[admin apm teamlead employ]) %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
