@@ -3,8 +3,11 @@ class CustomUsersController < ApplicationController
 
   def index
   	@users = if current_user.role == 'admin'
-  		          current_user.find_apm
-  		       elsif current_user.role == 'apm'
+  	         #  @users = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))
+  		       @users = User.all
+             @users.delete current_user
+             @users.to_ary
+             elsif current_user.role == 'apm'
   		       	  current_user.find_teamlead
   		       elsif current_user.role == 'teamlead'
   		       	  current_user.find_employ

@@ -6,25 +6,23 @@ class User < ActiveRecord::Base
   acts_as_paranoid
   after_save :check_role
 
-  def find_apm
-    Admin.find(self.id).apms.map {|apm| User.find(apm.user_id)}
-  end
-
    def find_teamlead
-    Apm.find(self.id).teamleads.map {|employs| User.find(apm.user_id)}
+    Apm.find_by_user_id(self.id).teamleads.map {|employs| User.find(apm.user_id)}
   end
 
   def find_employ
-    Teamlead.find(self.id).employss.map {|apm| User.find(apm.user_id)}
+    Teamlead.find_by_user_id(self.id).employs.map {|apm| User.find(apm.user_id)}
   end
 
  
 
   def check_role
     if self.role == 'admin'
-       admin = Admin.new
-       admin.user_id = self.id
-       admin.save
+       if Admin.all.count == 0
+         admin = Admin.new
+         admin.user_id = self.id
+         admin.save
+       end
     elsif self.role == 'apm'
        apm = Apm.new
        apm.user_id = self.id

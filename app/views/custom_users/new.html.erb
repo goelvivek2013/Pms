@@ -17,7 +17,7 @@
 
   <div>
     <%= f.label :role%>
-    <%= f.select :role, options_for_select(%w[admin apm teamlead employ]) %>
+    <%= f.select :role, options_for_select(%w[admin employ apm teamlead] , selected: "employ", disabled: "admin") %>
   </div>
   
   <div>
